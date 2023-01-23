@@ -8,7 +8,7 @@ Jop ::
 - Vacancy
 - Salary
 - category
-- exper
+- experience
 -
 features ::
 - 
