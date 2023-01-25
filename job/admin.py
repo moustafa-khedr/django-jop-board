@@ -2,8 +2,10 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import jop, Category  #(اعمل استدعاء لملف models  فى ال admin)
+from .models import Job, Category, Apply  #(اعمل استدعاء لملف models  فى ال admin)
 
-admin .site.register(jop)    # (لتسجيل الملف فى صفحة الادمن بيظهر على الصفحة)
+admin.site.register(Job)    # (لتسجيل الملف فى صفحة الادمن بيظهر على الصفحة)
 
 admin.site.register(Category)
+
+admin.site.register(Apply)

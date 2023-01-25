@@ -15,8 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include     # add include to join the url file in job with project
+from django.conf import settings    # form documentation
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('jobs/', include('job.urls')),
+    path('jobs/', include('job.urls',namespace='jobs')),
 ]
+
+# add a static setting in a setting (copy form documentation)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# add a media setting in a setting (copy form documentation)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
