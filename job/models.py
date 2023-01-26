@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.template.defaultfilters import slugify
 
@@ -21,6 +22,7 @@ def image_upload(instance, filename):  # (costmize the image to save and upload)
 
 
 class Job(models.Model):  # is a table in DB(يكافئ جدول)
+    owner = models.ForeignKey(User, related_name='job_owner',on_delete=models.CASCADE)
     title = models.CharField(max_length=100)  # column in DB(يكافئ عمود )  max-length = max char in field
     # location
     job_type = models.CharField(max_length=15, choices=JOP_TYPE)
