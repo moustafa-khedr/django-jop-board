@@ -40,6 +40,7 @@ class Job(models.Model):  # is a table in DB(يكافئ جدول)
         self.slug = slugify(self.title)   ## logic
         super(Job, self).save(*args, **kwargs)    #to inharite
 
+
     def __str__(self):
         return self.title
 

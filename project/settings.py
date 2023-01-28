@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     # my apps
     'job',
     'bootstrap4',
+    'django_filters',
+    'contact',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -131,4 +134,10 @@ MEDIA_ROOT = BASE_DIR / "media"  # (add media root to put a file )
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# to send message
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mustfakhedr1998@gmail.com'
+EMAIL_HOST_PASSWORD = 'vyxobjgactygtkgr'
+EMAIL_USE_TLS = True
+EMAIL_PORT = '587'

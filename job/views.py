@@ -4,16 +4,22 @@ from .models import Job
 from django.core.paginator import Paginator
 from .form import ApplyForm, AddForm
 from django.urls import reverse
+from .filter import JopFilter
 
 # Create your views here.
 
 def job_list(request):
     job_list = Job.objects.all()
+    ## filter
+    myfilter = JopFilter(request.GET,queryset=job_list)
+    job_list = myfilter.qs
 
     paginator = Paginator(job_list, 3)    # Show 25 contacts per page.(كام وظيفة تظهر فى الصفحة )
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    context = {'jobs': page_obj}  # template name      (page_obj  بضيفها مكان jop list لانها بترجع بكام وظيفة فى الصفحة)
+
+
+    context = {'jobs': page_obj, 'myfilter':myfilter}  # template name      (page_obj  بضيفها مكان jop list لانها بترجع بكام وظيفة فى الصفحة)
     return render(request, 'job/job_list.html', context)
 
 
